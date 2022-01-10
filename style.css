@@ -50,7 +50,7 @@ body {
 }
 .wrapper {
   min-height: var(--wrapper-height);
-  display: grid;
+/*   display: grid; */
   place-items: center;
   min-height: 86vh;
   border: none;
@@ -97,12 +97,19 @@ h1 {
   width: 100%;
 }
 
+.boundary {
+  width: 40px;
+}
+
 .step {
   width: 100%;
   place-items: center;
   align-items: center;
-/*   margin: 1rem; */
   padding: 1rem;
+}
+
+.links {
+  text-align: right;
 }
 
 #outputcontainer {

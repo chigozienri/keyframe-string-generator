@@ -31,13 +31,13 @@
         <div id="modes">
           <h3>Options</h3>
           <label for="xmin">xmin: </label>
-          <input type="text" id="xmin" />
+          <input type="text" id="xmin" class="boundary"/>
           <label for="xmax">xmax: </label>
-          <input type="text" id="xmax" /><br />
+          <input type="text" id="xmax" class="boundary"/><br />
           <label for="ymin">ymin: </label>
-          <input type="text" id="ymin" />
+          <input type="text" id="ymin" class="boundary"/>
           <label for="ymax">ymax: </label>
-          <input type="text" id="ymax" /><br />
+          <input type="text" id="ymax" class="boundary"/><br />
 
           <input type="checkbox" id="logscale" name="scale" value="logscale" />
           <label for="logscale"
@@ -558,7 +558,6 @@
       const decimalPrecision = 2;
       const gCanvas = document.querySelector("#curve");
       var { width, height } = gCanvas;
-
       var graphxmin;
       var graphymin;
       var graphxmax;
