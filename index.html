@@ -28,43 +28,47 @@
       <div class="step" id="step2">
         <h2>Step 2: Add/Edit points</h2>
         <canvas height="400" width="800" id="curve"></canvas><br />
-        <div id="modes">
-          <h3>Options</h3>
-          <label for="xmin">xmin: </label>
-          <input type="text" id="xmin" class="boundary"/>
-          <label for="xmax">xmax: </label>
-          <input type="text" id="xmax" class="boundary"/><br />
-          <label for="ymin">ymin: </label>
-          <input type="text" id="ymin" class="boundary"/>
-          <label for="ymax">ymax: </label>
-          <input type="text" id="ymax" class="boundary"/><br />
+        <div class="float-container">
+          <div class = "float-child">
+            <h3>Options</h3>
+            <label for="xmin">xmin: </label>
+            <input type="text" id="xmin" class="boundary"/>
+            <label for="xmax">xmax: </label>
+            <input type="text" id="xmax" class="boundary"/><br />
+            <label for="ymin">ymin: </label>
+            <input type="text" id="ymin" class="boundary"/>
+            <label for="ymax">ymax: </label>
+            <input type="text" id="ymax" class="boundary"/><br />
 
-          <input type="checkbox" id="logscale" name="scale" value="logscale" />
-          <label for="logscale"
-            >Use log scale on y axis? (Experimental, but good for multiplicative
-            parameters like "zoom". Be careful not to have any values of 0 or
-            negative!)</label
-          ><br />
+            <input type="checkbox" id="logscale" name="scale" value="logscale" />
+            <label for="logscale"
+              >Use log scale on y axis? (Experimental, but good for multiplicative
+              parameters like "zoom". Be careful not to have any values of 0 or
+              negative!)</label
+            ><br />
+          </div>
 
-          <h3>Modes</h3>
+          <div class="float-child">
+            <h3>Modes</h3>
 
-          <input type="radio" id="add" name="mode" value="add" />
-          <label for="add"
-            >Add point (click to place, drag for bezier) (shortcut 1)</label
-          ><br />
+            <input type="radio" id="add" name="mode" value="add" />
+            <label for="add"
+              >Add point (click to place, drag for bezier) (shortcut 1)</label
+            ><br />
 
-          <input type="radio" id="remove" name="mode" value="remove" />
-          <label for="remove">Remove point (click to remove) (shortcut 2)</label
-          ><br />
+            <input type="radio" id="remove" name="mode" value="remove" />
+            <label for="remove">Remove point (click to remove) (shortcut 2)</label
+            ><br />
 
-          <input type="radio" id="edit" name="mode" value="edit" />
-          <label for="edit"
-            >Edit control point (click and drag) (shortcut 3)</label
-          ><br />
+            <input type="radio" id="edit" name="mode" value="edit" />
+            <label for="edit"
+              >Edit control point (click and drag) (shortcut 3)</label
+            ><br />
 
-          <input type="radio" id="zoom" name="mode" value="zoom" />
-          <label for="edit">Zoom box (click and drag) (shortcut 4)</label><br />
-<!--           <button id="zoomreset" value="zoomreset">Reset Zoom</button><br /> -->
+            <input type="radio" id="zoom" name="mode" value="zoom" />
+            <label for="edit">Zoom box (click and drag) (shortcut 4)</label><br />
+  <!--           <button id="zoomreset" value="zoomreset">Reset Zoom</button><br /> -->
+          </div>
         </div>
       </div>
       <div class="step" id="step3">

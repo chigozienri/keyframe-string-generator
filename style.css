@@ -120,3 +120,19 @@ h1 {
 .newpromptbutton {
   margin:1rem 0;
 }
+
+h2 {
+  margin:  0 0 1rem -1rem  ;
+}
+
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}  
