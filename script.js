@@ -1079,16 +1079,22 @@ function getEvenSpacedBezier(sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
   return bezier;
 }
 
-function parsePromptString(string) {
+function parseKeyFrames(string) {
   // 17: (-0.02), 18: (0.04)
-  let framesplit
+  let frames = []
   let framestrings = string.split(',');
-  let re = /(([0-9]+):[\s]*[\(]([\S\s]*?)[\)])/
+  let re = /((?<frame>[0-9]+):[\s]*[\(](?<param>[\S\s]*?)[\)])/
   for (let framestring of framestrings) {
-    re.exec(framestring)
+    
+    let frame = {};
+    let match = re.exec(framestring)
+    frame['x'] = match.groups.frame
+    frame['y'] = match.groups.param
+    
+    frames.push(frame);
   }
-  return framestrings
+  return frames
   
 }
 
-console.log(parsePromptString('17: (-0.02), 18: (0.04)'));
+console.log(parseKeyFrames('17: (-0.02), 18: (0.04)'));
