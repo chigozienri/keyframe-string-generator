@@ -1088,13 +1088,17 @@ function parseKeyFrames(string) {
     
     let frame = {};
     let match = re.exec(framestring)
-    frame['x'] = match.groups.frame
-    frame['y'] = match.groups.param
-    
+    frame['x'] = parseInt(match.groups.frame);
+    if (isNaN(match.groups.param)) {
+      // Right now this only supports single text prompts
+      frame['y'] = parseFloat(match.groups.param.split(':')[1])
+    } else {
+      frame['y'] = parseFloat(match.groups.param)
+    }
     frames.push(frame);
   }
   return frames
   
 }
 
-console.log(parseKeyFrames('17: (-0.02), 18: (0.04)'));
+console.log(parseKeyFrames('17: (hello: -0.02), 18: (What: 0.04)'));
