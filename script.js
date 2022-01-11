@@ -504,11 +504,14 @@ function load (string) {
   try {
     let keyFrames = parseKeyFrames(string)
     line.deleteAllPoints();
-    for (let x of Object.keys(keyFrames)) {}
+    for (let keyFrame of keyFrames) {
+      line.newPoint(keyFrame['x'], keyFrame['y'])
+    }
     console.log(keyFrames);
   } catch (e) {
     console.log('bad format for key frame string')
   }
+  resetCanvas();
 };
 
 const addInput = document.querySelector("#add");
