@@ -319,6 +319,12 @@ class Line {
     }
     delete this.points[x];
   }
+  
+  deleteAllPoints() {
+    for (let x of Object.keys(this.points)) {
+      this.deletePoint(x);
+    }
+  }
 
   get sorted() {
     let sorted = Object.keys(this.points);
@@ -490,6 +496,20 @@ const liveLabelPosition = {
 
 let jsonLineVals = JSON.parse(parameterInitialValues);
 const line = new Line(jsonLineVals);
+
+const inputTextArea = document.querySelector("#input");
+const loadButton = document.querySelector("#load");
+loadButton.onclick = () => {load(inputTextArea.value)};
+function load (string) {
+  try {
+    let keyFrames = parseKeyFrames(string)
+    line.deleteAllPoints();
+    for (let x of Object.keys(keyFrames)) {}
+    console.log(keyFrames);
+  } catch (e) {
+    console.log('bad format for key frame string')
+  }
+};
 
 const addInput = document.querySelector("#add");
 const removeInput = document.querySelector("#remove");
