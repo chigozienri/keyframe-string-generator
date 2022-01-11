@@ -28,27 +28,9 @@
       <div class="step" id="step2">
         <h2>Step 2: Add/Edit points</h2>
         <canvas height="400" width="800" id="curve"></canvas><br />
-        <div class="float-container">
-          <div class = "float-child">
-            <h3>Options</h3>
-            <label for="xmin">xmin: </label>
-            <input type="text" id="xmin" class="boundary"/>
-            <label for="xmax">xmax: </label>
-            <input type="text" id="xmax" class="boundary"/><br />
-            <label for="ymin">ymin: </label>
-            <input type="text" id="ymin" class="boundary"/>
-            <label for="ymax">ymax: </label>
-            <input type="text" id="ymax" class="boundary"/><br />
-
-            <input type="checkbox" id="logscale" name="scale" value="logscale" />
-            <label for="logscale"
-              >Use log scale on y axis? (Experimental, but good for multiplicative
-              parameters like "zoom". Be careful not to have any values of 0 or
-              negative!)</label
-            ><br />
-          </div>
-
-          <div class="float-child">
+        <div class="flex-container">
+          
+          <div class="flex-child">
             <h3>Modes</h3>
 
             <input type="radio" id="add" name="mode" value="add" />
@@ -69,6 +51,26 @@
             <label for="edit">Zoom box (click and drag) (shortcut 4)</label><br />
   <!--           <button id="zoomreset" value="zoomreset">Reset Zoom</button><br /> -->
           </div>
+
+          <div class = "flex-child">
+            <h3>Options</h3>
+            <label for="xmin">xmin: </label>
+            <input type="text" id="xmin" class="boundary"/>
+            <label for="xmax">xmax: </label>
+            <input type="text" id="xmax" class="boundary"/><br />
+            <label for="ymin">ymin: </label>
+            <input type="text" id="ymin" class="boundary"/>
+            <label for="ymax">ymax: </label>
+            <input type="text" id="ymax" class="boundary"/><br />
+
+            <input type="checkbox" id="logscale" name="scale" value="logscale" />
+            <label for="logscale"
+              >Use log scale on y axis? (Experimental, but good for multiplicative
+              parameters like "zoom". Be careful not to have any values of 0 or
+              negative!)</label
+            ><br />
+          </div>
+
         </div>
       </div>
       <div class="step" id="step3">

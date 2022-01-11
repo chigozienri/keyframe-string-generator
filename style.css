@@ -125,14 +125,11 @@ h2 {
   margin:  0 0 1rem -1rem  ;
 }
 
-.float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+.flex-container {
+  display: flex;
 }
 
-.float-child {
-    width: 50%;
-    float: left;
-    padding: 20px;
-    border: 2px solid red;
+.flex-child {
+  flex: 1;
+  padding: 1rem;
 }  
