@@ -453,7 +453,6 @@ function zoomToTextBoxes() {
     parseFloat(ymaxInput.value),
     false
   );
-  console.log(ymin);
 }
 xminInput.onchange = zoomToTextBoxes;
 xmaxInput.onchange = zoomToTextBoxes;
@@ -507,7 +506,6 @@ function load (string) {
     for (let keyFrame of keyFrames) {
       line.newPoint(keyFrame['x'], keyFrame['y'])
     }
-    console.log(keyFrames);
   } catch (e) {
     console.log('bad format for key frame string')
   }
@@ -519,7 +517,7 @@ const removeInput = document.querySelector("#remove");
 const editInput = document.querySelector("#edit");
 const zoomInput = document.querySelector("#zoom");
 const logscaleCheckbox = document.querySelector("#logscale");
-// const zoomReset = document.querySelector("#zoomreset");
+const zoomReset = document.querySelector("#zoomreset");
 const output = document.querySelector("#output");
 const copy = document.querySelector("#copy");
 addInput.onchange = handleModeChange;
@@ -539,7 +537,7 @@ function resetZoom() {
     false
   );
 }
-// zoomReset.onclick = () => {resetZoom()};
+zoomReset.onclick = () => {resetZoom()};
 document.querySelector("#promptname").onchange = () => {
   parameterName = document.querySelector("#promptname").value;
   resetCanvas();
@@ -1123,5 +1121,3 @@ function parseKeyFrames(string) {
   return frames
   
 }
-
-console.log(parseKeyFrames('17: (hello: -0.02), 18: (What: 0.04)'));
