@@ -319,7 +319,7 @@ class Line {
     }
     delete this.points[x];
   }
-  
+
   deleteAllPoints() {
     for (let x of Object.keys(this.points)) {
       this.deletePoint(x);
@@ -498,19 +498,21 @@ const line = new Line(jsonLineVals);
 
 const inputTextArea = document.querySelector("#input");
 const loadButton = document.querySelector("#load");
-loadButton.onclick = () => {load(inputTextArea.value)};
-function load (string) {
+loadButton.onclick = () => {
+  load(inputTextArea.value);
+};
+function load(string) {
   try {
-    let keyFrames = parseKeyFrames(string)
+    let keyFrames = parseKeyFrames(string);
     line.deleteAllPoints();
     for (let keyFrame of keyFrames) {
-      line.newPoint(keyFrame['x'], keyFrame['y'])
+      line.newPoint(keyFrame["x"], keyFrame["y"]);
     }
   } catch (e) {
-    console.log('bad format for key frame string')
+    console.log("bad format for key frame string");
   }
   resetCanvas();
-};
+}
 
 const addInput = document.querySelector("#add");
 const removeInput = document.querySelector("#remove");
@@ -529,15 +531,11 @@ logscaleCheckbox.onchange = () => {
   resetCanvas();
 };
 function resetZoom() {
-  zoom(
-    xminDefault,
-    yminDefault,
-    xmaxDefault,
-    ymaxDefault,
-    false
-  );
+  zoom(xminDefault, yminDefault, xmaxDefault, ymaxDefault, false);
 }
-zoomReset.onclick = () => {resetZoom()};
+zoomReset.onclick = () => {
+  resetZoom();
+};
 document.querySelector("#promptname").onchange = () => {
   parameterName = document.querySelector("#promptname").value;
   resetCanvas();
@@ -871,8 +869,8 @@ function handleDown(e) {
 
 function updateOutput() {
   let string = "";
-  
-    console.log(Object.keys(line.export["without_cpts"]))
+
+  console.log(Object.keys(line.export["without_cpts"]));
   for (let ind of Object.keys(line.export["without_cpts"])) {
     let el = line.export["without_cpts"][ind];
     if (parameterName.length == 0) {
@@ -887,7 +885,7 @@ function updateOutput() {
       );
     }
     if (ind < Object.keys(line.export["without_cpts"]).slice(-1)[0]) {
-      string = string.concat(', ');
+      string = string.concat(", ");
     }
   }
   output.innerHTML = string;
@@ -1106,24 +1104,22 @@ function getEvenSpacedBezier(sx, sy, cp1x, cp1y, cp2x, cp2y, ex, ey) {
 }
 
 function parseKeyFrames(string) {
-  // 17: (-0.02), 18: (0.04)
-  let frames = []
-  let framestrings = string.split(',');
-  console.log(framestrings)
-  let re = /((?<frame>[0-9]+):[\s]*[\(](?<param>[\S\s]*?)[\)])/
+  let frames = [];
+  let framestrings = string.split(",");
+  // Remove whitespace-only elements
+  framestrings = framestrings.filter((el) => /\S/.test(el));
+  let re = /((?<frame>[0-9]+):[\s]*[\(](?<param>[\S\s]*?)[\)])/;
   for (let framestring of framestrings) {
-    
     let frame = {};
-    let match = re.exec(framestring)
-    frame['x'] = parseInt(match.groups.frame);
+    let match = re.exec(framestring);
+    frame["x"] = parseInt(match.groups.frame);
     if (isNaN(match.groups.param)) {
       // Right now this only supports single text prompts
-      frame['y'] = parseFloat(match.groups.param.split(':')[1])
+      frame["y"] = parseFloat(match.groups.param.split(":")[1]);
     } else {
-      frame['y'] = parseFloat(match.groups.param)
+      frame["y"] = parseFloat(match.groups.param);
     }
     frames.push(frame);
   }
-  return frames
-  
+  return frames;
 }

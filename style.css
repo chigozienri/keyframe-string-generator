@@ -8,9 +8,9 @@ to this section's matching END comment to see page-specific styles.
 ******************************************************************************/
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #FFFFA0;
+  --color-bg: #ffffa0;
   --color-text-main: #000000;
-  --color-primary: #AFECE0;
+  --color-primary: #afece0;
   --wrapper-height: 85vh;
   --image-max-width: 320px;
   --font-family: "HK Grotesk";
@@ -38,7 +38,6 @@ to this section's matching END comment to see page-specific styles.
     format("opentype");
 }
 
-
 /******************************************************************************
 END Glitch hello-app default styles
 ******************************************************************************/
@@ -50,7 +49,7 @@ body {
 }
 .wrapper {
   min-height: var(--wrapper-height);
-/*   display: grid; */
+  /*   display: grid; */
   place-items: center;
   min-height: 86vh;
   border: none;
@@ -84,7 +83,7 @@ h1 {
 }
 
 #copy {
-/*   float: right; */
+  /*   float: right; */
 }
 
 #input {
@@ -118,11 +117,11 @@ h1 {
 }
 
 .newpromptbutton {
-  margin:1rem 0;
+  margin: 1rem 0;
 }
 
 h2 {
-  margin:  0 0 1rem -1rem  ;
+  margin: 0 0 1rem -1rem;
 }
 
 .flex-container {
@@ -132,4 +131,4 @@ h2 {
 .flex-child {
   flex: 1;
   padding: 1rem;
-}  
+}
