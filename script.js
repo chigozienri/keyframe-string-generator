@@ -871,18 +871,23 @@ function handleDown(e) {
 
 function updateOutput() {
   let string = "";
+  
+    console.log(Object.keys(line.export["without_cpts"]))
   for (let ind of Object.keys(line.export["without_cpts"])) {
     let el = line.export["without_cpts"][ind];
     if (parameterName.length == 0) {
       string = string.concat(
-        `${el["x"]}: (${parseFloat(el["y"]).toFixed(decimalPrecision)}), `
+        `${el["x"]}: (${parseFloat(el["y"]).toFixed(decimalPrecision)})`
       );
     } else {
       string = string.concat(
         `${el["x"]}: (${parameterName}: ${parseFloat(el["y"]).toFixed(
           decimalPrecision
-        )}), `
+        )})`
       );
+    }
+    if (ind < Object.keys(line.export["without_cpts"]).slice(-1)[0]) {
+      string = string.concat(', ');
     }
   }
   output.innerHTML = string;
@@ -1104,6 +1109,7 @@ function parseKeyFrames(string) {
   // 17: (-0.02), 18: (0.04)
   let frames = []
   let framestrings = string.split(',');
+  console.log(framestrings)
   let re = /((?<frame>[0-9]+):[\s]*[\(](?<param>[\S\s]*?)[\)])/
   for (let framestring of framestrings) {
     
