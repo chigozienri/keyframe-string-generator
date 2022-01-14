@@ -20,54 +20,66 @@
       >
       <div class="step" id="step1">
         <h2>Step 1: Load string (optional)</h2>
-        <span
-          >Note that this tool currently only supports one text prompt. e.g. if
+
+        <div class="substep">
+          Note that this tool currently only supports one text prompt. e.g. if
           you put in "0: (Apple: 1 | Orange: 1)", the orange value will be
-          ignored.</span
-        ><br />
+          ignored.
+        </div>
         <div class="inputcontainer">
           <textarea id="input">10: (0.5), 50: (1.5), 60: (1)</textarea>
-          <input type="submit" id="load" value="Load input" /><br />
+          <input type="submit" id="load" value="Load input" />
         </div>
       </div>
       <div class="step" id="step2">
         <h2>Step 2: Add/Edit points</h2>
-        <canvas height="400" width="800" id="curve"></canvas><br />
+        <div class="substep">
+          <canvas height="400" width="800" id="curve"></canvas>
+        </div>
         <div class="flex-container">
           <div class="flex-child">
             <h3>Modes</h3>
-
-            <input type="radio" id="add" name="mode" value="add" />
-            <label for="add"
-              >Add point (click to place, drag for bezier) (shortcut 1)</label
-            ><br />
-
-            <input type="radio" id="remove" name="mode" value="remove" />
-            <label for="remove"
-              >Remove point (click to remove) (shortcut 2)</label
-            ><br />
-
-            <input type="radio" id="edit" name="mode" value="edit" />
-            <label for="edit"
-              >Edit control point (click and drag) (shortcut 3)</label
-            ><br />
-
-            <input type="radio" id="zoom" name="mode" value="zoom" />
-            <label for="edit">Zoom box (click and drag) (shortcut 4)</label
-            ><br />
-            <button id="zoomreset" value="zoomreset">Reset Zoom</button><br />
+            <div class="substep">
+              <input type="radio" id="add" name="mode" value="add" />
+              <label for="add"
+                >Add point (click to place, drag for bezier) (shortcut 1)</label
+              >
+            </div>
+            <div class="substep">
+              <input type="radio" id="remove" name="mode" value="remove" />
+              <label for="remove"
+                >Remove point (click to remove) (shortcut 2)</label
+              >
+            </div>
+            <div class="substep">
+              <input type="radio" id="edit" name="mode" value="edit" />
+              <label for="edit"
+                >Edit control point (click and drag) (shortcut 3)</label
+              >
+            </div>
+            <div class="substep">
+              <input type="radio" id="zoom" name="mode" value="zoom" />
+              <label for="edit">Zoom box (click and drag) (shortcut 4)</label>
+            </div>
+            <div class="substep">
+              <button id="zoomreset" value="zoomreset">Reset Zoom</button>
+            </div>
           </div>
 
           <div class="flex-child">
             <h3>Options</h3>
-            <label for="xmin">xmin: </label>
-            <input type="text" id="xmin" class="boundary" />
-            <label for="xmax">xmax: </label>
-            <input type="text" id="xmax" class="boundary" /><br />
-            <label for="ymin">ymin: </label>
-            <input type="text" id="ymin" class="boundary" />
-            <label for="ymax">ymax: </label>
-            <input type="text" id="ymax" class="boundary" /><br />
+            <div class="substep">
+              <label for="xmin">xmin: </label>
+              <input type="text" id="xmin" class="boundary" />
+              <label for="xmax">xmax: </label>
+              <input type="text" id="xmax" class="boundary" />
+            </div>
+            <div class="substep">
+              <label for="ymin">ymin: </label>
+              <input type="text" id="ymin" class="boundary" />
+              <label for="ymax">ymax: </label>
+              <input type="text" id="ymax" class="boundary" />
+            </div>
 
             <input
               type="checkbox"
@@ -85,12 +97,14 @@
       </div>
       <div class="step" id="step3">
         <h2>Step 3: Copy string</h2>
-        <span
-          >For text or image prompt strings, you can enter a prompt name here.
-          For now, this tool only supports one text/image prompt.</span
-        ><br />
-        <label for="promptname">Text prompt name: </label>
-        <input type="text" id="promptname" /><br />
+        <div class="substep">
+          For text or image prompt strings, you can enter a prompt name here.
+          For now, this tool only supports one text/image prompt.
+        </div>
+        <div class="substep">
+          <label for="promptname">Text prompt name: </label>
+          <input type="text" id="promptname" />
+        </div>
 
         <div id="outputcontainer">
           <div id="output"></div>
