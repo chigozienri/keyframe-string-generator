@@ -521,6 +521,7 @@ const zoomInput = document.querySelector("#zoom");
 const logscaleCheckbox = document.querySelector("#logscale");
 const zoomReset = document.querySelector("#zoomreset");
 const output = document.querySelector("#output");
+output.onclick = () => {output.select()};
 // const copy = document.querySelector("#copy");
 addInput.onchange = handleModeChange;
 removeInput.onchange = handleModeChange;
