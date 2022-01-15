@@ -542,6 +542,13 @@ document.querySelector("#promptname").onchange = () => {
   resetCanvas();
   updateOutput();
 };
+
+const pytti = document.querySelector("#pytti");
+const fps = document.querySelector("#fps");
+fps.value = 12;
+
+pytti.onchange = () => {updateOutput()};
+fps.onchange = () => {updateOutput()};
 // copy.onclick = () => {
 //   window.prompt("Copy to clipboard: Ctrl+C, Enter", output.innerHTML);
 // };
@@ -889,7 +896,11 @@ function updateOutput() {
       string = string.concat(", ");
     }
   }
-  output.innerHTML = string;
+  if (pytti.checked) {
+    output.innerHTML = `(lambda fps, kf: kf[min(kf, key=lambda x:abs(x-int(round(t * fps, 0))))])(${fps.value}, {${string}})`;
+  } else {
+    output.innerHTML = string;
+  }
   // try {
   //     google.colab.kernel.invokeFunction('notebook.AssignValues', [line.export, parameterName], {});
   // } catch (error) {
