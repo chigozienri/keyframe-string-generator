@@ -521,7 +521,7 @@ const zoomInput = document.querySelector("#zoom");
 const logscaleCheckbox = document.querySelector("#logscale");
 const zoomReset = document.querySelector("#zoomreset");
 const output = document.querySelector("#output");
-const copy = document.querySelector("#copy");
+// const copy = document.querySelector("#copy");
 addInput.onchange = handleModeChange;
 removeInput.onchange = handleModeChange;
 editInput.onchange = handleModeChange;
@@ -541,9 +541,9 @@ document.querySelector("#promptname").onchange = () => {
   resetCanvas();
   updateOutput();
 };
-copy.onclick = () => {
-  window.prompt("Copy to clipboard: Ctrl+C, Enter", output.innerHTML);
-};
+// copy.onclick = () => {
+//   window.prompt("Copy to clipboard: Ctrl+C, Enter", output.innerHTML);
+// };
 
 function drawInterface() {
   gCtx.save();
