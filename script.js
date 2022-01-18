@@ -523,6 +523,10 @@ const zoomReset = document.querySelector("#zoomreset");
 const output = document.querySelector("#output");
 output.onclick = () => {output.select()};
 // const copy = document.querySelector("#copy");
+copy.onclick = () => {
+  output.select();
+  document.execCommand("copy");
+}
 addInput.onchange = handleModeChange;
 removeInput.onchange = handleModeChange;
 editInput.onchange = handleModeChange;
