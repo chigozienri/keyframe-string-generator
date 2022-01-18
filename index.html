@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DVWK28FQ1F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DVWK28FQ1F");
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
@@ -17,7 +30,10 @@
     <meta name="robots" content="index,follow" />
     <meta property="og:title" content="Keyframe string generator" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://keyframe-string-generator.glitch.me/" />
+    <meta
+      property="og:url"
+      content="https://keyframe-string-generator.glitch.me/"
+    />
     <meta
       property="og:description"
       content="Generates keyframe strings for AI notebooks."
@@ -41,7 +57,11 @@
       <div class="step" id="step1">
         <h2>Step 1: Load string (optional)</h2>
         <div class="substep">
-          Try using <a href="https://audio-keyframe-generator.glitch.me/">this audio keyframe generator</a> to generate a string from an audio file.
+          Try using
+          <a href="https://audio-keyframe-generator.glitch.me/"
+            >this audio keyframe generator</a
+          >
+          to generate a string from an audio file.
         </div>
         <div class="substep">
           Note that this tool currently only supports one text prompt. e.g. if
@@ -122,9 +142,13 @@
         <div class="substep">
           For text or image prompt strings, you can enter a prompt name here.
           For now, this tool only supports one text/image prompt.<br />
-          
-          <span>If PyTTI format is checked, it will attempt to make a function that PyTTI will understand, but it is experimental. Let me know if you try it out. Do not use text prompt name while PyTTI format is checked.</span>
-          
+
+          <span
+            >If PyTTI format is checked, it will attempt to make a function that
+            PyTTI will understand, but it is experimental. Let me know if you
+            try it out. Do not use text prompt name while PyTTI format is
+            checked.</span
+          >
         </div>
         <div class="substep">
           <label for="promptname">Text prompt name: </label>
@@ -138,8 +162,10 @@
         </div>
 
         <div id="outputcontainer">
-          <textarea id="output" readonly="true">Output string will appear here</textarea>
-<!--           <button id="copy">Copy string</button> -->
+          <textarea id="output" readonly="true">
+Output string will appear here</textarea
+          >
+          <!--           <button id="copy">Copy string</button> -->
         </div>
       </div>
       <div class="links">
