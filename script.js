@@ -1124,16 +1124,17 @@ function parseKeyFrames(string) {
   let framestrings = string.split(",");
   // Remove whitespace-only elements
   framestrings = framestrings.filter((el) => /\S/.test(el));
-  let re = /((?<frame>[0-9]+):[\s]*[\(](?<param>[\S\s]*?)[\)])/;
+  let re = /((?<frame>[0-9]+):[\s]*(?<param>[^,]*))/;
   for (let framestring of framestrings) {
     let frame = {};
     let match = re.exec(framestring);
     frame["x"] = parseInt(match.groups.frame);
-    if (isNaN(match.groups.param)) {
+    let param = match.groups.param.replace('(', '').replace(')', '');
+    if (isNaN(param)) {
       // Right now this only supports single text prompts
-      frame["y"] = parseFloat(match.groups.param.split(":")[1]);
+      frame["y"] = parseFloat(param.split(":")[1]);
     } else {
-      frame["y"] = parseFloat(match.groups.param);
+      frame["y"] = parseFloat(param);
     }
     frames.push(frame);
   }
