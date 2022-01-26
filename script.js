@@ -430,7 +430,7 @@ class Line {
 ///////////////////////////////////////////////////////////////////////////////
 // Code
 ///////////////////////////////////////////////////////////////////////////////
-var parameterName = document.querySelector("#promptname").value;
+// var parameterName = document.querySelector("#promptname").value;
 const parameterInitialValues = "{}";
 var xminDefault = 0;
 var xmaxDefault = 100;
@@ -541,11 +541,11 @@ function resetZoom() {
 zoomReset.onclick = () => {
   resetZoom();
 };
-document.querySelector("#promptname").onchange = () => {
-  parameterName = document.querySelector("#promptname").value;
-  resetCanvas();
-  updateOutput();
-};
+// document.querySelector("#promptname").onchange = () => {
+//   parameterName = document.querySelector("#promptname").value;
+//   resetCanvas();
+//   updateOutput();
+// };
 
 const pytti = document.querySelector("#pytti");
 const fps = document.querySelector("#fps");
@@ -882,20 +882,20 @@ function handleDown(e) {
 function updateOutput() {
   let string = "";
 
-  console.log(Object.keys(line.export["without_cpts"]));
+  // console.log(Object.keys(line.export["without_cpts"]));
   for (let ind of Object.keys(line.export["without_cpts"])) {
     let el = line.export["without_cpts"][ind];
-    if (parameterName.length == 0) {
-      string = string.concat(
-        `${el["x"]}: (${parseFloat(el["y"]).toFixed(decimalPrecision)})`
-      );
-    } else {
-      string = string.concat(
-        `${el["x"]}: (${parameterName}: ${parseFloat(el["y"]).toFixed(
-          decimalPrecision
-        )})`
-      );
-    }
+    // if (parameterName.length == 0) {
+    string = string.concat(
+      `${el["x"]}: (${parseFloat(el["y"]).toFixed(decimalPrecision)})`
+    );
+    // } else {
+    //   string = string.concat(
+    //     `${el["x"]}: (${parameterName}: ${parseFloat(el["y"]).toFixed(
+    //       decimalPrecision
+    //     )})`
+    //   );
+    // }
     if (ind < Object.keys(line.export["without_cpts"]).slice(-1)[0]) {
       string = string.concat(", ");
     }
