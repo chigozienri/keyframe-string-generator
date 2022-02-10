@@ -500,6 +500,7 @@ const inputTextArea = document.querySelector("#input");
 const loadButton = document.querySelector("#load");
 loadButton.onclick = () => {
   load(inputTextArea.value);
+  updateOutput();
 };
 function load(string) {
   try {
