@@ -897,7 +897,6 @@ function updateOutput() {
     //     )})`
     //   );
     // }
-    console.log(string, ind, Object.keys(line.export["without_cpts"]).slice(-1)[0], parseInt(ind) < parseInt(Object.keys(line.export["without_cpts"])), typeof ind, typeof Object.keys(line.export["without_cpts"]).slice(-1)[0]);
     if (parseInt(ind) < parseInt(Object.keys(line.export["without_cpts"]).slice(-1)[0])) {
       string = string.concat(", ");
     }
