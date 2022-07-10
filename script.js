@@ -522,6 +522,9 @@ const zoomInput = document.querySelector("#zoom");
 const logscaleCheckbox = document.querySelector("#logscale");
 const zoomReset = document.querySelector("#zoomreset");
 const output = document.querySelector("#output");
+const pyttifps = document.querySelector("#pyttifps");
+pyttifps.style.visibility = "hidden"
+
 output.onclick = () => {output.select()};
 // const copy = document.querySelector("#copy");
 copy.onclick = () => {
@@ -548,12 +551,17 @@ zoomReset.onclick = () => {
 //   updateOutput();
 // };
 
-const pytti = document.querySelector("#pytti");
+// const pytti = document.querySelector("#pytti");
 const fps = document.querySelector("#fps");
 fps.value = 12;
 
-pytti.onchange = () => {updateOutput()};
+// pytti.onchange = () => {updateOutput()};
 fps.onchange = () => {updateOutput()};
+
+const format = document.querySelector('[name="format"]')
+format.onchange = () => {updateOutput()};
+
+
 // copy.onclick = () => {
 //   window.prompt("Copy to clipboard: Ctrl+C, Enter", output.innerHTML);
 // };
@@ -901,10 +909,23 @@ function updateOutput() {
       string = string.concat(", ");
     }
   }
-  if (pytti.checked) {
+  if (format.value == "pytti") {
     output.innerHTML = `(lambda builtins, fps, kf: kf[builtins["min"](kf, key = lambda x: builtins["abs"](x-(t*fps)//1))])([a for a in (1).__class__.__base__.__subclasses__() if a.__name__ == "catch_warnings"][0]()._module.__builtins__, ${fps.value}, {${string}})`;
-  } else {
+    pyttifps.style.visibility = "visible"
+  } else if (format.value == "disco") {
     output.innerHTML = string;
+    pyttifps.style.visibility = "hidden"
+  } else if (format.value == "csv") {
+    var firstframe = parseInt(string.split(':')[0]);
+    var matches = string.matchAll(/\(([\-0-9.]+)\)/g)
+    let matchesArr = [... matches].map((e) => e[1])
+    let CSVString = matchesArr.join('\n')
+    if (firstframe > 0) {
+      let prefix = `${matchesArr[0]}\n`.repeat(firstframe)
+      CSVString = `${prefix}${CSVString}`
+    }
+    output.innerHTML = CSVString;
+    pyttifps.style.visibility = "hidden"
   }
   // try {
   //     google.colab.kernel.invokeFunction('notebook.AssignValues', [line.export, parameterName], {});

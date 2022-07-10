@@ -17,11 +17,11 @@
     </script>
     <script>
       // Request https
-      if (location.protocol != "https:") {
-        location.href =
-          "https:" +
-          window.location.href.substring(window.location.protocol.length);
-      }
+      // if (location.protocol != "https:") {
+      //   location.href =
+      //     "https:" +
+      //     window.location.href.substring(window.location.protocol.length);
+      // }
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -148,10 +148,18 @@
           <input type="text" id="promptname" />
         </div> -->
         <div class="substep">
-          <label for="pytti">PyTTI format? (Experimental)</label>
-          <input type="checkbox" id="pytti" />
-          <label for="fps">FPS for PyTTI</label>
-          <input type="text" id="fps" />
+          <label for="format">Format</label>
+          <select name="format">
+            <option value="disco" selected>Disco</option>
+            <option value="pytti">PyTTI</option>
+            <option value="csv">CSV</option>
+          </select>
+          <!-- <label for="pytti">PyTTI format? (Experimental)</label>
+          <input type="checkbox" id="pytti" /> -->
+          <div id="pyttifps">
+            <label for="fps">FPS for PyTTI</label>
+            <input type="text" id="fps" />
+          </div>
         </div>
 
         <div id="outputcontainer">
